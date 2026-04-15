@@ -17,9 +17,9 @@ Here are some ideas to get you started:
 
 <!-- 노래 영역 시작 -->
 ### 🎵 Recently Played on Spotify
-- **Highway to Hell** - AC/DC
-- **Hotel California - 2013 Remaster** - Eagles
-- **Basket Case** - Green Day
-- **Are You Gonna Be My Girl** - Jet
-- **Song 2 - 2012 Remaster** - Blur
+- **Magnetic** - ILLIT
+- **Have You Ever Seen The Rain** - Creedence Clearwater Revival
+- **Dream On** - Aerosmith
+- **Paranoid - 2009 Remaster** - Black Sabbath
+- **Come As You Are** - Nirvana
 <!-- 노래 영역 끝 -->
