@@ -1,0 +1,96 @@
+name: Spotify Daily Grass  # GitHub Actions 탭에서 보일 자동화 이름
+
+on:
+  schedule:
+    # 0분 15시 *일 *월 *요일 (UTC 기준) -> 한국 시간(KST)은 +9시간이므로 밤 12시(00:00)에 실행됩니다.
+    - cron: '0 15 * * *'
+  workflow_dispatch: # Actions 탭에서 'Run workflow' 버튼을 눌러 수동으로 실행할 수 있게 함
+
+jobs:
+  update-spotify:
+    runs-on: ubuntu-latest # 가상 컴퓨터 환경 설정
+    permissions:
+      contents: write # README.md 파일을 수정하고 다시 저장할 수 있는 권한 부여
+
+    steps:
+      - name: Checkout Repository # 현재 저장소의 파일들을 가상 컴퓨터로 가져옴
+        uses: actions/checkout@v4
+
+      - name: Set up Python # 파이썬 실행 환경 구축
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies # API 요청을 보내기 위해 필요한 라이브러리 설치
+        run: pip install requests
+
+      - name: Fetch Spotify Data & Update README
+        env:
+          # GitHub Secrets에 저장한 보안 키들을 파이썬에서 쓸 수 있게 환경변수로 등록
+          CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+        run: |
+          python - <<EOF
+          import requests, os, base64, datetime, re
+
+          # --- 1단계: 스포티파이 액세스 토큰 갱신 ---
+          # 리프레시 토큰을 사용해 1시간짜리 임시 출입증(Access Token)을 새로 발급받습니다.
+          auth_str = f"{os.environ['CLIENT_ID']}:{os.environ['CLIENT_SECRET']}"
+          auth_b64 = base64.b64encode(auth_str.encode()).decode() # ID:Secret을 Base64 포맷으로 변환
+          
+          token_res = requests.post("https://accounts.spotify.com/api/token", 
+              data={"grant_type": "refresh_token", "refresh_token": os.environ['REFRESH_TOKEN']},
+              headers={"Authorization": f"Basic {auth_b64}"})
+          access_token = token_res.json().get("access_token")
+
+          # --- 2단계: 최근 들은 곡 데이터 가져오기 ---
+          # 스포티파이 서버에 "내가 최근에 들은 곡 정보 5개만 줘"라고 요청합니다.
+          headers = {"Authorization": f"Bearer {access_token}"}
+          res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=5", headers=headers)
+          data = res.json()
+
+          # --- 3단계: README에 넣을 글자 꾸미기 ---
+          # 마크다운(Markdown) 형식으로 제목과 노래 목록을 만듭니다.
+          new_content = "### 🎵 Recently Played on Spotify\n"
+          if 'items' in data:
+              for item in data['items']:
+                  track = item['track']
+                  artist = track['artists'][0]['name']
+                  new_content += f"- **{track['name']}** - {artist}\n"
+          
+          # --- 4단계: README.md 파일 내용 교체하기 ---
+          # 1) 현재 README 내용을 읽어옵니다.
+          with open("README.md", "r", encoding="utf-8") as f:
+              readme = f.read()
+
+          # 2) [주의] 아래 주석 태그가 README.md 안에 반드시 있어야 합니다!
+          # re.sub(패턴, 바꿀내용, 원본문자열) 함수로 주석 사이의 내용만 쏙 갈아끼웁니다.
+          # pattern = r".*?"
+          # replacement = f"\n{new_content}"
+          pattern = r"<!-- 노래 --!>"
+          replacement = rf"\g<1>{new_content}\g<2>"
+          
+          # flags=re.DOTALL은 줄바꿈(\n)이 포함된 여러 줄도 하나의 덩어리로 인식하라는 뜻입니다.
+          updated_readme = re.sub(pattern, replacement, readme, flags=re.DOTALL)
+
+          # 3) 바뀐 내용을 다시 README.md에 저장합니다.
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(updated_readme)
+          EOF
+
+      - name: Commit and Push # 변경된 README.md를 내 깃허브 프로필에 최종 반영
+        run: |
+          git config --global user.name "Spotify-Bot"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          # 변경사항이 있을 때만 커밋을 진행하여 불필요한 에러 방지
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: 🎶 Update Spotify Profile List" && git push)
+          # 변경사항이 있을 때만 커밋
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: 🎶 Update Spotify Profile List"
+          # 깃허브에 새로운 수정사항이 생겼다면 최신 버전을 먼저 받아옴 (pull)
+          git pull --rebase origin main
+          # 최종적으로 깃허브에 반영(push)
+          git push
+      
+          
