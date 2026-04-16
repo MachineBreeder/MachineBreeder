@@ -17,9 +17,9 @@ Here are some ideas to get you started:
 
 <!-- 노래 영역 시작 -->
 ### 🎵 Recently Played on Spotify
-- **Magnetic** - ILLIT
-- **Have You Ever Seen The Rain** - Creedence Clearwater Revival
-- **Dream On** - Aerosmith
-- **Paranoid - 2009 Remaster** - Black Sabbath
+- **You Really Got Me** - The Kinks
 - **Come As You Are** - Nirvana
+- **Born To Be Wild - Single Version** - Steppenwolf
+- **Zombie - 2025 Remastered** - The Cranberries
+- **London Calling - Remastered** - The Clash
 <!-- 노래 영역 끝 -->
