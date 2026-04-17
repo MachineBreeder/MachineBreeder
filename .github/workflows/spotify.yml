@@ -75,8 +75,10 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config --global user.name "Spotify-Bot"
-          git config --global user.email "actions@github.com"
+          # git config --global user.name "Spotify-Bot"
+          # git config --global user.email "actions@github.com"
+          git config --global user.name "MachineBreeder"
+          git config --global user.email "MachineBreeder@users.noreply.github.com"
           git add README.md
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: Update Spotify List"
           git pull --rebase origin main
