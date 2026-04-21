@@ -17,9 +17,9 @@ Here are some ideas to get you started:
 
 <!-- 노래 영역 시작 -->
 ### 🎵 Recently Played on Spotify
+- **Don't Stop Me Now - Remastered 2011** - Queen
 - **Seven Nation Army** - The White Stripes
 - **Paint It, Black** - The Rolling Stones
 - **Should I Stay or Should I Go - Remastered** - The Clash
 - **Highway to Hell** - AC/DC
-- **Hotel California - 2013 Remaster** - Eagles
 <!-- 노래 영역 끝 -->
