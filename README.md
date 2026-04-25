@@ -17,9 +17,9 @@ Here are some ideas to get you started:
 
 <!-- 노래 영역 시작 -->
 ### 🎵 Recently Played on Spotify
-- **Thunderstruck** - AC/DC
-- **Paradise City** - Guns N' Roses
-- **Paradise City** - Guns N' Roses
-- **Immigrant Song - Remaster** - Led Zeppelin
-- **Under Pressure - Remastered 2011** - Queen
+- **TICK TOCK (Feat. ZICO) (Prod. by ZICO, Crush)** - HAON
+- **Who** - Jimin
+- **KISS KISS KISS (Feat. SUNWOO (THE BOYZ)) (Prod. by Hukky Shibaseki)** - NOWIMYOUNG
+- **아크라포빅 (Akrapovic)** - hamo
+- **RUDE!** - Hearts2Hearts
 <!-- 노래 영역 끝 -->
