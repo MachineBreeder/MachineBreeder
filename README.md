@@ -15,11 +15,14 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<!-- 노래 영역 시작 -->
-### 🎵 Recently Played on Spotify
+<!-- Top Tracks 시작 -->
+<!-- Top Tracks 끝 -->
+
+<!-- Recently Played 시작 -->
+### 🎵 Recently Played
 - **TICK TOCK (Feat. ZICO) (Prod. by ZICO, Crush)** - HAON
 - **Who** - Jimin
 - **KISS KISS KISS (Feat. SUNWOO (THE BOYZ)) (Prod. by Hukky Shibaseki)** - NOWIMYOUNG
 - **아크라포빅 (Akrapovic)** - hamo
 - **RUDE!** - Hearts2Hearts
-<!-- 노래 영역 끝 -->
+<!-- Recently Played 끝 -->
