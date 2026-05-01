@@ -14,17 +14,11 @@ if not access_token:
 
 headers = {"Authorization": f"Bearer {access_token}"}
 
-# --- 2단계: Premium 여부 확인 ---
-user_res = requests.get("https://api.spotify.com/v1/me", headers=headers)
-user_res.raise_for_status()
-is_premium = user_res.json().get("product") == "premium"
-print(f"✅ 계정 유형: {'Premium' if is_premium else 'Free'}")
-
-# --- 3단계: README.md 읽기 ---
+# --- 2단계: README.md 읽기 ---
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
-# --- 4단계: Top Tracks 가져오기 ---
+# --- 3단계: Top Tracks 가져오기 (공통) ---
 top_res = requests.get("https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=short_term", headers=headers)
 top_res.raise_for_status()
 top_data = top_res.json()
@@ -35,25 +29,24 @@ if 'items' in top_data:
         artist = track['artists'][0]['name']
         top_tracks.append(f"{track['name']} - {artist}")
 
-# --- 5단계: Recently Played 가져오기 (Premium만) ---
+# --- 4단계: Recently Played 시도 후 Premium 여부 자동 판단 ---
+recent_res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=5", headers=headers)
+is_premium = recent_res.status_code == 200  # ✅ 200이면 Premium, 403이면 Free
+print(f"✅ 계정 유형: {'Premium' if is_premium else 'Free'}")
+
 recent_tracks = []
 if is_premium:
-    recent_res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=5", headers=headers)
-    recent_res.raise_for_status()
     recent_data = recent_res.json()
-
     if 'items' in recent_data:
         for item in recent_data['items']:
             track = item['track']
             artist = track['artists'][0]['name']
             recent_tracks.append(f"{track['name']} - {artist}")
 
-# --- 6단계: 테이블 형식으로 구성 ---
-# Premium: 두 컬럼 테이블
-# Free: Top Tracks 단독 테이블
+# --- 5단계: 테이블 형식으로 구성 ---
 if is_premium:
     max_rows = max(len(top_tracks), len(recent_tracks))
-    
+
     table = "| 🏆 Top Tracks | 🎵 Recently Played |\n"
     table += "|---|---|\n"
     for i in range(max_rows):
@@ -91,7 +84,7 @@ else:
     )
     print("ℹ️ Free 계정 - Top Tracks만 업데이트!")
 
-# --- 7단계: README.md 저장 ---
+# --- 6단계: README.md 저장 ---
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(readme)
 
