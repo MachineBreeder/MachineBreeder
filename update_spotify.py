@@ -24,52 +24,74 @@ print(f"✅ 계정 유형: {'Premium' if is_premium else 'Free'}")
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
-# --- 4단계: Top Tracks 업데이트 (공통) ---
+# --- 4단계: Top Tracks 가져오기 ---
 top_res = requests.get("https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=short_term", headers=headers)
 top_res.raise_for_status()
 top_data = top_res.json()
 
-top_content = "\n#### 🏆 Top Tracks\n"
+top_tracks = []
 if 'items' in top_data:
     for track in top_data['items']:
         artist = track['artists'][0]['name']
-        top_content += f"- **{track['name']}** - {artist}\n"
+        top_tracks.append(f"{track['name']} - {artist}")
 
-if "<!-- Top Tracks 시작 -->" not in readme:
-    raise Exception("README.md에 '<!-- Top Tracks 시작 -->' 태그가 없습니다!")
-
-readme = re.sub(
-    r"(<!-- Top Tracks 시작 -->).*?(<!-- Top Tracks 끝 -->)",
-    rf"\g<1>{top_content}\g<2>",
-    readme, flags=re.DOTALL
-)
-
-# --- 5단계: Recently Played 업데이트 (Premium만) ---
+# --- 5단계: Recently Played 가져오기 (Premium만) ---
+recent_tracks = []
 if is_premium:
     recent_res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=5", headers=headers)
     recent_res.raise_for_status()
     recent_data = recent_res.json()
 
-    recent_content = "\n#### 🎵 Recently Played\n"
     if 'items' in recent_data:
         for item in recent_data['items']:
             track = item['track']
             artist = track['artists'][0]['name']
-            recent_content += f"- **{track['name']}** - {artist}\n"
+            recent_tracks.append(f"{track['name']} - {artist}")
 
-    if "<!-- Recently Played 시작 -->" not in readme:
-        raise Exception("README.md에 '<!-- Recently Played 시작 -->' 태그가 없습니다!")
+# --- 6단계: 테이블 형식으로 구성 ---
+# Premium: 두 컬럼 테이블
+# Free: Top Tracks 단독 테이블
+if is_premium:
+    max_rows = max(len(top_tracks), len(recent_tracks))
+    
+    table = "| 🏆 Top Tracks | 🎵 Recently Played |\n"
+    table += "|---|---|\n"
+    for i in range(max_rows):
+        top = f"**{top_tracks[i]}**" if i < len(top_tracks) else ""
+        recent = f"**{recent_tracks[i]}**" if i < len(recent_tracks) else ""
+        table += f"| {top} | {recent} |\n"
+
+    new_content = f"\n{table}"
+
+    if "<!-- Top Tracks 시작 -->" not in readme:
+        raise Exception("README.md에 '<!-- Top Tracks 시작 -->' 태그가 없습니다!")
 
     readme = re.sub(
-        r"(<!-- Recently Played 시작 -->).*?(<!-- Recently Played 끝 -->)",
-        rf"\g<1>{recent_content}\g<2>",
+        r"(<!-- Top Tracks 시작 -->).*?(<!-- Recently Played 끝 -->)",
+        rf"\g<1>{new_content}\g<2>",
         readme, flags=re.DOTALL
     )
-    print("✅ Recently Played 업데이트 완료!")
-else:
-    print("ℹ️ Free 계정 - Recently Played 유지")
+    print("✅ Premium - 테이블 업데이트 완료!")
 
-# --- 6단계: README.md 저장 ---
+else:
+    table = "| 🏆 Top Tracks |\n"
+    table += "|---|\n"
+    for track in top_tracks:
+        table += f"| **{track}** |\n"
+
+    new_content = f"\n{table}"
+
+    if "<!-- Top Tracks 시작 -->" not in readme:
+        raise Exception("README.md에 '<!-- Top Tracks 시작 -->' 태그가 없습니다!")
+
+    readme = re.sub(
+        r"(<!-- Top Tracks 시작 -->).*?(<!-- Top Tracks 끝 -->)",
+        rf"\g<1>{new_content}\g<2>",
+        readme, flags=re.DOTALL
+    )
+    print("ℹ️ Free 계정 - Top Tracks만 업데이트!")
+
+# --- 7단계: README.md 저장 ---
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(readme)
 
