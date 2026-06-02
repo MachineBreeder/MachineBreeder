@@ -16,13 +16,11 @@ Here are some ideas to get you started:
 -->
 
 <!-- Top Tracks 시작 -->
-<!-- Top Tracks 끝 -->
-
-<!-- Recently Played 시작 -->
-### 🎵 Recently Played
-- **TICK TOCK (Feat. ZICO) (Prod. by ZICO, Crush)** - HAON
-- **Who** - Jimin
-- **KISS KISS KISS (Feat. SUNWOO (THE BOYZ)) (Prod. by Hukky Shibaseki)** - NOWIMYOUNG
-- **아크라포빅 (Akrapovic)** - hamo
-- **RUDE!** - Hearts2Hearts
+| 🏆 Top Tracks | 🎵 Recently Played |
+|---|---|
+| **GET SHOW - Trans Fixion** | **마시자 Let's Drink - CRYING NUT** |
+| **Baby I Need You - JANNABI** | **Spring Breeze (feat.Naul of Brown Eyed Soul) - Lee Moon Sae** |
+| **비와당신 (From. '영화 라디오스타') - Various Artists** | **서커스 매직 유랑단 Circus Magic Clowns - CRYING NUT** |
+| **날 막지마! - 전영호** | **서커스 (feat. Yim you Kyung, $howgun) - MC MONG** |
+| **비가 오면 - CAN** | **슬퍼지려하기전에 - COOL** |
 <!-- Recently Played 끝 -->
