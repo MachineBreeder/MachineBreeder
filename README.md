@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **GET SHOW - Trans Fixion** | **취생몽사 - CRYING NUT** |
-| **날 막지마! - 전영호** | **서커스 (feat. Yim you Kyung, $howgun) - MC MONG** |
-| **Baby I Need You - JANNABI** | **깊은 밤을 날아서 - Lee Moon Sae** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **좋지 아니한가 Isn't That Good? - CRYING NUT** |
-| **비와당신 (From. '영화 라디오스타') - Various Artists** | **Cocktail Love - Turtles** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **GET SHOW - Trans Fixion** |
+| **GET SHOW - Trans Fixion** | **해변의 여인 - COOL** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **내생에 봄날은... - CAN** |
+| **날 막지마! - 전영호** | **Dance with DOC - DJ DOC** |
+| **Baby I Need You - JANNABI** | **다음에 잘하자 Let’s Do Better Next Time - CRYING NUT** |
 <!-- Recently Played 끝 -->
