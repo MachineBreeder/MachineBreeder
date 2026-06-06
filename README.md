@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **GET SHOW - Trans Fixion** |
-| **GET SHOW - Trans Fixion** | **해변의 여인 - COOL** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **내생에 봄날은... - CAN** |
-| **날 막지마! - 전영호** | **Dance with DOC - DJ DOC** |
-| **Baby I Need You - JANNABI** | **다음에 잘하자 Let’s Do Better Next Time - CRYING NUT** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Dirty Deeds Done Dirt Cheap - AC/DC** |
+| **GET SHOW - Trans Fixion** | **Are You Gonna Be My Girl - Jet** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Wonderwall - Remastered - Oasis** |
+| **날 막지마! - 전영호** | **Take on Me - a-ha** |
+| **Baby I Need You - JANNABI** | **Zombie - 2025 Remastered - The Cranberries** |
 <!-- Recently Played 끝 -->
