@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Dirty Deeds Done Dirt Cheap - AC/DC** |
-| **GET SHOW - Trans Fixion** | **Are You Gonna Be My Girl - Jet** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Wonderwall - Remastered - Oasis** |
-| **날 막지마! - 전영호** | **Take on Me - a-ha** |
-| **Baby I Need You - JANNABI** | **Zombie - 2025 Remastered - The Cranberries** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **We Are The Champions - Remastered 2011 - Queen** |
+| **GET SHOW - Trans Fixion** | **Love Of My Life - Remastered 2011 - Queen** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **More Than a Feeling - Boston** |
+| **날 막지마! - 전영호** | **Black or White - Michael Jackson** |
+| **Baby I Need You - JANNABI** | **Burning Heart - From "Rocky IV" Soundtrack - Survivor** |
 <!-- Recently Played 끝 -->
