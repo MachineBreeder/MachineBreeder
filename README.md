@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Jump - 2015 Remaster - Van Halen** |
-| **GET SHOW - Trans Fixion** | **Who Can It Be Now? - Men At Work** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Come As You Are - Nirvana** |
-| **날 막지마! - 전영호** | **Walk This Way - Aerosmith** |
-| **Baby I Need You - JANNABI** | **Peace of Mind - Boston** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Pressure - Muse** |
+| **GET SHOW - Trans Fixion** | **I Don't Care - Fall Out Boy** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Head Up - The Score** |
+| **날 막지마! - 전영호** | **Burn It to the Ground - Nickelback** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **Monsters (feat. blackbear) - All Time Low** |
 <!-- Recently Played 끝 -->
