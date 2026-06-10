@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Pressure - Muse** |
-| **GET SHOW - Trans Fixion** | **I Don't Care - Fall Out Boy** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Head Up - The Score** |
-| **날 막지마! - 전영호** | **Burn It to the Ground - Nickelback** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Monsters (feat. blackbear) - All Time Low** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Bubbles - Biffy Clyro** |
+| **GET SHOW - Trans Fixion** | **Oh No!!! - grandson** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **The Champion - The Score** |
+| **날 막지마! - 전영호** | **Supersoaker - Kings of Leon** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **Slither - Velvet Revolver** |
 <!-- Recently Played 끝 -->
