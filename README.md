@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Bubbles - Biffy Clyro** |
-| **GET SHOW - Trans Fixion** | **Oh No!!! - grandson** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **The Champion - The Score** |
-| **날 막지마! - 전영호** | **Supersoaker - Kings of Leon** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Slither - Velvet Revolver** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Invincible - Adelitas Way** |
+| **GET SHOW - Trans Fixion** | **But Here We Are - Foo Fighters** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Spiralling Out - Softcult** |
+| **날 막지마! - 전영호** | **Sick Ride - Karen Dió** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **Sick Sense - LEAP** |
 <!-- Recently Played 끝 -->
