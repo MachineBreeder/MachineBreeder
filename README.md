@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Cocktail Love - Turtles** |
-| **GET SHOW - Trans Fixion** | **I Don't Care - Fall Out Boy** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **허니 Honey - CRYING NUT** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Monsters (feat. blackbear) - All Time Low** |
-| **날 막지마! - 전영호** | **깊은 밤을 날아서 - Lee Moon Sae** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **You You You - FLY TO THE SKY** |
+| **GET SHOW - Trans Fixion** | **붉은 노을 - Lee Moon Sae** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Your Crush On Me - No Brain** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **House of the Rising Sun - The Animals** |
+| **날 막지마! - 전영호** | **Never Ending Story - BOOHWAL** |
 <!-- Recently Played 끝 -->
