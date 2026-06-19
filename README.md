@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **가시 - BUZZ** |
-| **GET SHOW - Trans Fixion** | **Oh My Dear Lord - The Unlikely Candidates** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **우리 지금 만나 Let's Meet Now (feat. 장기하와 얼굴들 Kiha & The Faces) - Leessang** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Over You - Daughtry** |
-| **날 막지마! - 전영호** | **Novocaine - Fall Out Boy** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Monsters (feat. blackbear) - All Time Low** |
+| **GET SHOW - Trans Fixion** | **My Songs Know What You Did In The Dark (Light Em Up) - Fall Out Boy** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **취생몽사 - CRYING NUT** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **룩셈부르크 Luxembourg - CRYING NUT** |
+| **날 막지마! - 전영호** | **The Mighty Fall - Fall Out Boy** |
 <!-- Recently Played 끝 -->
