@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Monsters (feat. blackbear) - All Time Low** |
-| **GET SHOW - Trans Fixion** | **My Songs Know What You Did In The Dark (Light Em Up) - Fall Out Boy** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **취생몽사 - CRYING NUT** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **룩셈부르크 Luxembourg - CRYING NUT** |
-| **날 막지마! - 전영호** | **The Mighty Fall - Fall Out Boy** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Alcoholic - Starsailor** |
+| **GET SHOW - Trans Fixion** | **96 - CRYING NUT** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **2step - Ed Sheeran** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **Monsters (feat. blackbear) - All Time Low** |
+| **날 막지마! - 전영호** | **My Songs Know What You Did In The Dark (Light Em Up) - Fall Out Boy** |
 <!-- Recently Played 끝 -->
