@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Alcoholic - Starsailor** |
-| **GET SHOW - Trans Fixion** | **96 - CRYING NUT** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **2step - Ed Sheeran** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Monsters (feat. blackbear) - All Time Low** |
-| **날 막지마! - 전영호** | **My Songs Know What You Did In The Dark (Light Em Up) - Fall Out Boy** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Enemy (with JID) - from the series Arcane League of Legends - Imagine Dragons** |
+| **GET SHOW - Trans Fixion** | **SONG FOR YOU - ZO ZAZZ** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Demons - Imagine Dragons** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **Runway (from 'Naruto', Original Soundtrack) - BUZZ** |
+| **날 막지마! - 전영호** | **Runway (from 'Naruto', Original Soundtrack) - BUZZ** |
 <!-- Recently Played 끝 -->
