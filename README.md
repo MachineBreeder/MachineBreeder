@@ -18,9 +18,9 @@ Here are some ideas to get you started:
 <!-- Top Tracks 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Enemy (with JID) - from the series Arcane League of Legends - Imagine Dragons** |
-| **GET SHOW - Trans Fixion** | **SONG FOR YOU - ZO ZAZZ** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Demons - Imagine Dragons** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Runway (from 'Naruto', Original Soundtrack) - BUZZ** |
-| **날 막지마! - 전영호** | **Runway (from 'Naruto', Original Soundtrack) - BUZZ** |
+| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **Checklist (feat. Chromeo) - MAX** |
+| **GET SHOW - Trans Fixion** | **Checklist (feat. Chromeo) - MAX** |
+| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **I Miss the Misery - Halestorm** |
+| **깊은 밤을 날아서 - Lee Moon Sae** | **해바라기 (그녀에게..) - Park Sang Min** |
+| **날 막지마! - 전영호** | **Marry Me - ELLEGARDEN** |
 <!-- Recently Played 끝 -->
