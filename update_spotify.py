@@ -8,25 +8,21 @@ def trunc(text, n):
 
 def generate_html(top_artists, recent_tracks):
 
-    # --- 상단: Top Artists ---
+    # --- 상단: Top Artists (5등분으로 꽉 채우기) ---
     artist_cells = ''
     for a in top_artists:
         img  = f'<img src="{a["img_url"]}" width="72" height="72"/>' if a.get('img_url') else ''
         name = esc(trunc(a['name'], 12))
-        artist_cells += f'''<td align="center" width="80">
-{img}<br/>
-<sub><b>{name}</b></sub>
-</td>\n'''
+        artist_cells += f'<td align="center" width="20%">{img}<br/><sub><b>{name}</b></sub></td>\n'
 
     artists_html = f'''<b>🎤 Top Artists</b><br/><br/>
-<table align="center">
+<table width="100%">
 <tr>
 {artist_cells}
 </tr>
 </table>'''
 
     # --- 하단: Recently Played 5행 2열 ---
-    # 10곡을 (짝수 인덱스, 홀수 인덱스) 쌍으로 묶어 행 구성
     track_rows = ''
     for i in range(0, 10, 2):
         left  = recent_tracks[i]     if i   < len(recent_tracks) else None
@@ -36,23 +32,20 @@ def generate_html(top_artists, recent_tracks):
             if not t:
                 return '<td width="50%">&nbsp;</td>'
             img  = f'<img src="{t["album_img_url"]}" width="42" height="42"/>' if t.get('album_img_url') else ''
-            name = esc(trunc(t['name'], 20))
-            art  = esc(trunc(t['artist'], 22))
+            name = esc(trunc(t['name'], 24))
+            art  = esc(trunc(t['artist'], 26))
             return f'''<td valign="middle" width="50%">
-<table><tr>
-<td><sub>{num}</sub></td>
-<td>{img}</td>
+<table width="100%"><tr>
+<td width="20" align="center"><sub>{num}</sub></td>
+<td width="46">{img}</td>
 <td><a href="{t["url"]}"><b>{name}</b></a><br/><sub>{art}</sub></td>
 </tr></table>
 </td>'''
 
-        track_rows += f'''<tr>
-{track_cell(left,  i+1)}
-{track_cell(right, i+2)}
-</tr>\n'''
+        track_rows += f'<tr>\n{track_cell(left, i+1)}\n{track_cell(right, i+2)}\n</tr>\n'
 
     recent_html = f'''<b>🎵 Recently Played</b><br/><br/>
-<table width="100%" cellspacing="0" cellpadding="4">
+<table width="100%" cellspacing="0" cellpadding="6">
 {track_rows}
 </table>'''
 
