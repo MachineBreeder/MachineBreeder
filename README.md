@@ -16,11 +16,11 @@ Here are some ideas to get you started:
 -->
 
 <!-- Top Artists 시작 -->
-| 🏆 Top Tracks | 🎵 Recently Played |
+| 🎤 Top Artists | 🎵 Recently Played |
 |---|---|
-| **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **T.N.T. - AC/DC** |
-| **GET SHOW - Trans Fixion** | **Unstoppable - The Score** |
-| **브라보 마이 라이프 (Bravo My Life) - SSaW** | **Architect - Livingston** |
-| **깊은 밤을 날아서 - Lee Moon Sae** | **Victorious - Panic! At The Disco** |
-| **날 막지마! - 전영호** | **House of Memories - Panic! At The Disco** |
+| **CRYING NUT** | **Say Amen (Saturday Night) - Panic! At The Disco** |
+| **Lee Moon Sae** | **T.N.T. - AC/DC** |
+| **Fall Out Boy** | **T.N.T. - AC/DC** |
+| **Queen** | **T.N.T. - AC/DC** |
+| **BUZZ** | **Unstoppable - The Score** |
 <!-- Recently Played 끝 -->
