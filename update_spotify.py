@@ -18,8 +18,8 @@ headers = {"Authorization": f"Bearer {access_token}"}
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
-# --- 3단계: Top Artists 가져오기 (중복 없이 3개) ---
-artist_res = requests.get("https://api.spotify.com/v1/me/top/artists?limit=10&time_range=short_term", headers=headers)
+# --- 3단계: Top Artists 가져오기 (중복 없이 5개) ---
+artist_res = requests.get("https://api.spotify.com/v1/me/top/artists?limit=15&time_range=short_term", headers=headers)
 artist_res.raise_for_status()
 artist_data = artist_res.json()
 
@@ -34,7 +34,7 @@ if 'items' in artist_data:
                 "name": name,
                 "img_url": artist['images'][0]['url'] if artist.get('images') else ""
             })
-        if len(top_artists) == 3:
+        if len(top_artists) == 5:
             break
 
 # --- 4단계: Recently Played 가져오기 (중복 없이 5개) ---
@@ -47,13 +47,12 @@ seen_tracks = set()
 if 'items' in recent_data:
     for item in recent_data['items']:
         track = item['track']
-        track_id = track['id']  # ✅ 곡 ID로 중복 판단
+        track_id = track['id']
         if track_id not in seen_tracks:
             seen_tracks.add(track_id)
             recent_tracks.append({
                 "name": track['name'],
                 "artist": track['artists'][0]['name'],
-                "album_img": track['album']['images'][0]['url'] if track['album'].get('images') else "",
                 "url": track['external_urls']['spotify']
             })
         if len(recent_tracks) == 5:
@@ -62,7 +61,7 @@ if 'items' in recent_data:
 # --- 5단계: Top Artists 테이블 구성 ---
 artist_cells = ""
 for artist in top_artists:
-    artist_cells += f"""    <td align="center" width="150">
+    artist_cells += f"""    <td align="center" width="120">
       <img src="{artist['img_url']}" width="80" height="80" style="border-radius:50%;object-fit:cover"/><br/>
       <b>{artist['name']}</b>
     </td>\n"""
@@ -73,15 +72,15 @@ top_artists_html = f"""
 {artist_cells}</tr></table>
 """
 
-# --- 6단계: Recently Played 테이블 구성 ---
+# --- 6단계: Recently Played 테이블 구성 (앨범 이미지 제거) ---
 recent_rows = ""
 for track in recent_tracks:
-    recent_rows += f'| <img src="{track["album_img"]}" width="50" height="50"/> | [**{track["name"]}**]({track["url"]})<br/>{track["artist"]} |\n'
+    recent_rows += f'| [**{track["name"]}**]({track["url"]}) | {track["artist"]} |\n'
 
 recently_played_html = f"""
 <h3>🎵 Recently Played</h3>
 
-| | 곡 정보 |
+| 곡명 | 아티스트 |
 |---|---|
 {recent_rows}"""
 
