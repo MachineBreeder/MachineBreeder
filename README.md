@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<!-- Top Artists 시작 -->
+<!-- Spotify 시작 -->
 | 🎤 Top Artists | 🎵 Recently Played |
 |---|---|
 | **CRYING NUT** | **Say Amen (Saturday Night) - Panic! At The Disco** |
@@ -23,4 +23,4 @@ Here are some ideas to get you started:
 | **Fall Out Boy** | **T.N.T. - AC/DC** |
 | **Queen** | **T.N.T. - AC/DC** |
 | **BUZZ** | **Unstoppable - The Score** |
-<!-- Recently Played 끝 -->
+<!-- Spotify 끝 -->
