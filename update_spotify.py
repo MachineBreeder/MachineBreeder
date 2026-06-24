@@ -26,16 +26,16 @@ def generate_svg(top_artists, recent_tracks):
     FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
 
     # 색상
-    BG     = "#0d1117"
-    BORDER = "#21262d"
-    T_PRI  = "#e6edf3"
-    T_SEC  = "#8b949e"
-    T_MUT  = "#484f58"
+    BG     = "#ffffff"
+    BORDER = "#e0e0e0"
+    T_PRI  = "#111111"
+    T_SEC  = "#555555"
+    T_MUT  = "#aaaaaa"
     GOLD   = "#EF9F27"
 
     # 아티스트 섹션 레이아웃
     A_R      = 48          # 아티스트 이미지 반지름
-    A_IMG_CY = A_R + 42    # 이미지 중심 Y
+    A_IMG_CY = A_R + 62    # 이미지 중심 Y (라벨과 간격 증가: 42 → 62)
     A_NAME_Y = A_IMG_CY + A_R + 20
     A_SEC_H  = A_NAME_Y + 20
 
