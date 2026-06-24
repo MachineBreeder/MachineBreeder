@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<!-- Top Tracks 시작 -->
+<!-- Top Artists 시작 -->
 | 🏆 Top Tracks | 🎵 Recently Played |
 |---|---|
 | **Crazy Little Thing Called Love - Remastered 2011 - Queen** | **T.N.T. - AC/DC** |
