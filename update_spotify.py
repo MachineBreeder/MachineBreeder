@@ -72,7 +72,7 @@ def generate_svg(top_artists, recent_tracks):
     svg.append(f'<rect width="{W}" height="{int(H)}" fill="{BG}" rx="12"/>')
 
     # ── 아티스트 섹션 ──
-    svg.append(f'<text x="{PAD}" y="{A_IMG_CY - A_R - 14}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
+    svg.append(f'<text x="{PAD}" y="{A_IMG_CY - A_R - 20}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
 
     for i, a in enumerate(top_artists):
         cx   = PAD + A_COL_W * i + A_COL_W / 2
@@ -89,9 +89,9 @@ def generate_svg(top_artists, recent_tracks):
         # 링 테두리 (모든 아티스트 동일)
         svg.append(f'<circle cx="{cx:.1f}" cy="{A_IMG_CY}" r="{A_R}" fill="none" stroke="{BORDER}" stroke-width="1.5"/>')
 
-        # 아티스트 이름 (모든 아티스트 동일)
+        # 아티스트 이름 (검정 bold)
         name = esc(trunc(a['name'], 14))
-        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="11" font-weight="400" fill="{T_SEC}">{name}</text>')
+        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="18" font-weight="700" fill="{T_PRI}">{name}</text>')
 
     # ── 구분선 ──
     svg.append(f'<line x1="{PAD}" y1="{DIV_Y}" x2="{W-PAD}" y2="{DIV_Y}" stroke="{BORDER}" stroke-width="1"/>')
@@ -123,8 +123,8 @@ def generate_svg(top_artists, recent_tracks):
         if t.get('album_img_b64'):
             svg.append(f'<image href="{t["album_img_b64"]}" x="{img_x:.1f}" y="{img_y:.1f}" width="{T_IMG_SZ}" height="{T_IMG_SZ}" clip-path="url(#tc{i})" preserveAspectRatio="xMidYMid slice"/>')
 
-        # 곡명
-        svg.append(f'<text x="{tx:.1f}" y="{mid_y-5:.1f}" font-family="{FONT}" font-size="12" font-weight="500" fill="{T_PRI}">{esc(trunc(t["name"], 26))}</text>')
+        # 곡명 (검정 bold)
+        svg.append(f'<text x="{tx:.1f}" y="{mid_y-5:.1f}" font-family="{FONT}" font-size="12" font-weight="700" fill="{T_PRI}">{esc(trunc(t["name"], 26))}</text>')
 
         # 아티스트명
         svg.append(f'<text x="{tx:.1f}" y="{mid_y+12:.1f}" font-family="{FONT}" font-size="10" fill="{T_SEC}">{esc(trunc(t["artist"], 28))}</text>')
