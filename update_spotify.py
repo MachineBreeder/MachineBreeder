@@ -18,51 +18,85 @@ headers = {"Authorization": f"Bearer {access_token}"}
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
-# --- 3단계: Top Artists 가져오기 ---
-artist_res = requests.get("https://api.spotify.com/v1/me/top/artists?limit=5&time_range=short_term", headers=headers)
+# --- 3단계: Top Artists 가져오기 (중복 없이 3개) ---
+artist_res = requests.get("https://api.spotify.com/v1/me/top/artists?limit=10&time_range=short_term", headers=headers)
 artist_res.raise_for_status()
 artist_data = artist_res.json()
 
 top_artists = []
+seen_artists = set()
 if 'items' in artist_data:
     for artist in artist_data['items']:
-        top_artists.append(artist['name'])
+        name = artist['name']
+        if name not in seen_artists:
+            seen_artists.add(name)
+            top_artists.append({
+                "name": name,
+                "img_url": artist['images'][0]['url'] if artist.get('images') else ""
+            })
+        if len(top_artists) == 3:
+            break
 
-# --- 4단계: Recently Played 가져오기 ---
-recent_res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=5", headers=headers)
+# --- 4단계: Recently Played 가져오기 (중복 없이 5개) ---
+recent_res = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=20", headers=headers)
 recent_res.raise_for_status()
 recent_data = recent_res.json()
 
 recent_tracks = []
+seen_tracks = set()
 if 'items' in recent_data:
     for item in recent_data['items']:
         track = item['track']
-        artist = track['artists'][0]['name']
-        recent_tracks.append(f"{track['name']} - {artist}")
+        track_id = track['id']  # ✅ 곡 ID로 중복 판단
+        if track_id not in seen_tracks:
+            seen_tracks.add(track_id)
+            recent_tracks.append({
+                "name": track['name'],
+                "artist": track['artists'][0]['name'],
+                "album_img": track['album']['images'][0]['url'] if track['album'].get('images') else "",
+                "url": track['external_urls']['spotify']
+            })
+        if len(recent_tracks) == 5:
+            break
 
-# --- 5단계: 테이블 형식으로 구성 ---
-max_rows = max(len(top_artists), len(recent_tracks))
+# --- 5단계: Top Artists 테이블 구성 ---
+artist_cells = ""
+for artist in top_artists:
+    artist_cells += f"""    <td align="center" width="150">
+      <img src="{artist['img_url']}" width="80" height="80" style="border-radius:50%;object-fit:cover"/><br/>
+      <b>{artist['name']}</b>
+    </td>\n"""
 
-table = "| 🎤 Top Artists | 🎵 Recently Played |\n"
-table += "|---|---|\n"
-for i in range(max_rows):
-    artist = f"**{top_artists[i]}**" if i < len(top_artists) else ""
-    recent = f"**{recent_tracks[i]}**" if i < len(recent_tracks) else ""
-    table += f"| {artist} | {recent} |\n"
+top_artists_html = f"""
+<h3>🎤 Top Artists</h3>
+<table><tr>
+{artist_cells}</tr></table>
+"""
 
-new_content = f"\n{table}"
+# --- 6단계: Recently Played 테이블 구성 ---
+recent_rows = ""
+for track in recent_tracks:
+    recent_rows += f'| <img src="{track["album_img"]}" width="50" height="50"/> | [**{track["name"]}**]({track["url"]})<br/>{track["artist"]} |\n'
 
-# --- 6단계: README.md 태그 사이 내용 교체 ---
-if "<!-- Top Artists 시작 -->" not in readme:
-    raise Exception("README.md에 '<!-- Top Artists 시작 -->' 태그가 없습니다!")
+recently_played_html = f"""
+<h3>🎵 Recently Played</h3>
+
+| | 곡 정보 |
+|---|---|
+{recent_rows}"""
+
+# --- 7단계: README.md 태그 사이 내용 교체 ---
+new_content = f"\n{top_artists_html}\n{recently_played_html}\n"
+
+if "<!-- Spotify 시작 -->" not in readme:
+    raise Exception("README.md에 '<!-- Spotify 시작 -->' 태그가 없습니다!")
 
 readme = re.sub(
-    r"(<!-- Top Artists 시작 -->).*?(<!-- Recently Played 끝 -->)",
+    r"(<!-- Spotify 시작 -->).*?(<!-- Spotify 끝 -->)",
     rf"\g<1>{new_content}\g<2>",
     readme, flags=re.DOTALL
 )
 
-# --- 7단계: README.md 저장 ---
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(readme)
 
