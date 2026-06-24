@@ -61,8 +61,8 @@ def generate_svg(top_artists, recent_tracks):
         cx = PAD + A_COL_W * i + A_COL_W / 2
         svg.append(f'<clipPath id="ac{i}"><circle cx="{cx:.1f}" cy="{A_IMG_CY}" r="{A_R}"/></clipPath>')
     for i in range(len(recent_tracks)):
-        row = i // 2
-        col = i % 2
+        col = i // 5   # ✅ 세로 순서: 0~4번은 왼쪽, 5~9번은 오른쪽
+        row = i % 5
         tx  = PAD + col * T_COL_W + 30
         ty  = T_START_Y + row * T_ROW_H + (T_ROW_H - T_IMG_SZ) / 2
         svg.append(f'<clipPath id="tc{i}"><rect x="{tx:.1f}" y="{ty:.1f}" width="{T_IMG_SZ}" height="{T_IMG_SZ}" rx="5"/></clipPath>')
@@ -86,16 +86,12 @@ def generate_svg(top_artists, recent_tracks):
         if a.get('img_b64'):
             svg.append(f'<image href="{a["img_b64"]}" x="{ix:.1f}" y="{iy:.1f}" width="{A_R*2}" height="{A_R*2}" clip-path="url(#ac{i})" preserveAspectRatio="xMidYMid slice"/>')
 
-        # 링 테두리 (1등: 금색)
-        ring_c = GOLD if i == 0 else BORDER
-        ring_w = 2.5  if i == 0 else 1.5
-        svg.append(f'<circle cx="{cx:.1f}" cy="{A_IMG_CY}" r="{A_R}" fill="none" stroke="{ring_c}" stroke-width="{ring_w}"/>')
+        # 링 테두리 (모든 아티스트 동일)
+        svg.append(f'<circle cx="{cx:.1f}" cy="{A_IMG_CY}" r="{A_R}" fill="none" stroke="{BORDER}" stroke-width="1.5"/>')
 
-        # 아티스트 이름
-        name   = esc(trunc(a['name'], 14))
-        color  = T_PRI if i == 0 else T_SEC
-        weight = "600" if i == 0 else "400"
-        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="11" font-weight="{weight}" fill="{color}">{name}</text>')
+        # 아티스트 이름 (모든 아티스트 동일)
+        name = esc(trunc(a['name'], 14))
+        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="11" font-weight="400" fill="{T_SEC}">{name}</text>')
 
     # ── 구분선 ──
     svg.append(f'<line x1="{PAD}" y1="{DIV_Y}" x2="{W-PAD}" y2="{DIV_Y}" stroke="{BORDER}" stroke-width="1"/>')
@@ -108,8 +104,8 @@ def generate_svg(top_artists, recent_tracks):
     svg.append(f'<line x1="{mid}" y1="{T_START_Y}" x2="{mid}" y2="{T_START_Y + 5 * T_ROW_H - 8}" stroke="{BORDER}" stroke-width="0.5"/>')
 
     for i, t in enumerate(recent_tracks):
-        row   = i // 2
-        col   = i % 2
+        col   = i // 5   # ✅ 세로 순서
+        row   = i % 5
         bx    = PAD + col * T_COL_W
         by    = T_START_Y + row * T_ROW_H
         img_x = bx + 28
@@ -118,7 +114,7 @@ def generate_svg(top_artists, recent_tracks):
         tx    = img_x + T_IMG_SZ + 12
 
         # 트랙 번호
-        svg.append(f'<text x="{bx+14:.1f}" y="{mid_y+4:.1f}" text-anchor="middle" font-family="{FONT}" font-size="10" fill="{T_MUT}">{i+1}</text>')
+        svg.append(f'<text x="{bx+14:.1f}" y="{mid_y+4:.1f}" text-anchor="middle" font-family="{FONT}" font-size="13" font-weight="600" fill="{T_SEC}">{i+1}</text>')
 
         # 앨범 이미지 배경
         svg.append(f'<rect x="{img_x:.1f}" y="{img_y:.1f}" width="{T_IMG_SZ}" height="{T_IMG_SZ}" rx="5" fill="{BORDER}"/>')
@@ -133,8 +129,8 @@ def generate_svg(top_artists, recent_tracks):
         # 아티스트명
         svg.append(f'<text x="{tx:.1f}" y="{mid_y+12:.1f}" font-family="{FONT}" font-size="10" fill="{T_SEC}">{esc(trunc(t["artist"], 28))}</text>')
 
-        # 행 구분선 (마지막 행 제외, 오른쪽 열에서만 그림)
-        if row < 4 and col == 1:
+        # 행 구분선 (마지막 행 제외, 왼쪽 열에서만 그림)
+        if row < 4 and col == 0:
             sep_y = by + T_ROW_H
             svg.append(f'<line x1="{PAD}" y1="{sep_y:.1f}" x2="{W-PAD}" y2="{sep_y:.1f}" stroke="{BORDER}" stroke-width="0.5"/>')
 
