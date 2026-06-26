@@ -31,22 +31,22 @@ def generate_svg(top_artists, recent_tracks):
     T_PRI  = "#111111"
     T_SEC  = "#555555"
     T_MUT  = "#aaaaaa"
-    GOLD   = "#EF9F27"
 
     # 아티스트 섹션 레이아웃
-    A_R      = 48          # 아티스트 이미지 반지름
-    A_IMG_CY = A_R + 62    # 이미지 중심 Y (라벨과 간격 증가: 42 → 62)
-    A_NAME_Y = A_IMG_CY + A_R + 20
+    A_R      = 50
+    LABEL_Y  = 28
+    A_IMG_CY = LABEL_Y + 14 + 20 + A_R
+    A_NAME_Y = A_IMG_CY + A_R + 25
     A_SEC_H  = A_NAME_Y + 20
 
     # 구분선
     DIV_Y = A_SEC_H + 10
 
     # 트랙 섹션 레이아웃
-    T_IMG_SZ  = 44
-    T_ROW_H   = 62
+    T_IMG_SZ  = 46
+    T_ROW_H   = 63
     T_LABEL_Y = DIV_Y + 30
-    T_START_Y = DIV_Y + 50
+    T_START_Y = DIV_Y + 30 + 14 + 10
     T_COL_W   = (W - PAD * 2) / 2
 
     H = T_START_Y + 5 * T_ROW_H + PAD
@@ -72,7 +72,7 @@ def generate_svg(top_artists, recent_tracks):
     svg.append(f'<rect width="{W}" height="{int(H)}" fill="{BG}" rx="12"/>')
 
     # ── 아티스트 섹션 ──
-    svg.append(f'<text x="{PAD}" y="{A_IMG_CY - A_R - 20}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
+    svg.append(f'<text x="{PAD}" y="{LABEL_Y}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
 
     for i, a in enumerate(top_artists):
         cx   = PAD + A_COL_W * i + A_COL_W / 2
@@ -91,7 +91,7 @@ def generate_svg(top_artists, recent_tracks):
 
         # 아티스트 이름 (검정 bold)
         name = esc(trunc(a['name'], 14))
-        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="16" font-weight="700" fill="{T_PRI}">{name}</text>')
+        svg.append(f'<text x="{cx:.1f}" y="{A_NAME_Y}" text-anchor="middle" font-family="{FONT}" font-size="14" font-weight="700" fill="{T_PRI}">{name}</text>')
 
     # ── 구분선 ──
     svg.append(f'<line x1="{PAD}" y1="{DIV_Y}" x2="{W-PAD}" y2="{DIV_Y}" stroke="{BORDER}" stroke-width="1"/>')
@@ -124,7 +124,7 @@ def generate_svg(top_artists, recent_tracks):
             svg.append(f'<image href="{t["album_img_b64"]}" x="{img_x:.1f}" y="{img_y:.1f}" width="{T_IMG_SZ}" height="{T_IMG_SZ}" clip-path="url(#tc{i})" preserveAspectRatio="xMidYMid slice"/>')
 
         # 곡명 (검정 bold)
-        svg.append(f'<text x="{tx:.1f}" y="{mid_y-5:.1f}" font-family="{FONT}" font-size="16" font-weight="700" fill="{T_PRI}">{esc(trunc(t["name"], 26))}</text>')
+        svg.append(f'<text x="{tx:.1f}" y="{mid_y-5:.1f}" font-family="{FONT}" font-size="13" font-weight="700" fill="{T_PRI}">{esc(trunc(t["name"], 26))}</text>')
 
         # 아티스트명
         svg.append(f'<text x="{tx:.1f}" y="{mid_y+12:.1f}" font-family="{FONT}" font-size="10" fill="{T_SEC}">{esc(trunc(t["artist"], 28))}</text>')
