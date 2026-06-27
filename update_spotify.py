@@ -43,10 +43,10 @@ def generate_svg(top_artists, recent_tracks):
     DIV_Y = A_SEC_H + 10
 
     # 트랙 섹션 레이아웃
-    T_IMG_SZ  = 46
-    T_ROW_H   = 63
+    T_IMG_SZ  = 44
+    T_ROW_H   = 62
     T_LABEL_Y = DIV_Y + 30
-    T_START_Y = DIV_Y + 30 + 14 + 10
+    T_START_Y = DIV_Y + 30 + 14 + 20
     T_COL_W   = (W - PAD * 2) / 2
 
     H = T_START_Y + 5 * T_ROW_H + PAD
@@ -72,7 +72,7 @@ def generate_svg(top_artists, recent_tracks):
     svg.append(f'<rect width="{W}" height="{int(H)}" fill="{BG}" rx="12"/>')
 
     # ── 아티스트 섹션 ──
-    svg.append(f'<text x="{PAD}" y="{LABEL_Y}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
+    svg.append(f'<text x="{PAD}" y="{LABEL_Y}" font-family="{FONT}" font-size="13" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">TOP ARTISTS</text>')
 
     for i, a in enumerate(top_artists):
         cx   = PAD + A_COL_W * i + A_COL_W / 2
@@ -97,7 +97,7 @@ def generate_svg(top_artists, recent_tracks):
     svg.append(f'<line x1="{PAD}" y1="{DIV_Y}" x2="{W-PAD}" y2="{DIV_Y}" stroke="{BORDER}" stroke-width="1"/>')
 
     # ── 트랙 섹션 ──
-    svg.append(f'<text x="{PAD}" y="{T_LABEL_Y}" font-family="{FONT}" font-size="12" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">RECENTLY PLAYED</text>')
+    svg.append(f'<text x="{PAD}" y="{T_LABEL_Y}" font-family="{FONT}" font-size="13" font-weight="600" fill="{T_SEC}" letter-spacing="0.05em">RECENTLY PLAYED</text>')
 
     # 중앙 세로 구분선
     mid = W / 2
